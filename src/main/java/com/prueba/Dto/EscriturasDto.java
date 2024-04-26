@@ -4,17 +4,18 @@ import com.prueba.entity.Autores;
 import com.prueba.entity.Libros;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.List;
 
 
 @Builder
-@Data
+@Getter
 public class EscriturasDto {
 
+    @NotBlank(message = "Este campo no puede ir en blanco")
     private String genero;
     private LocalDateTime created;
-    private List<Autores> autores;
-    private List<Libros> libros;
 }
