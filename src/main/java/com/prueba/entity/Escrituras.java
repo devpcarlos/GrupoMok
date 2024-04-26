@@ -1,5 +1,6 @@
 package com.prueba.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,8 +24,10 @@ public class Escrituras {
     private LocalDateTime created;
 
       @OneToMany(targetEntity = Autores.class, fetch =FetchType.LAZY ,mappedBy = "escrituras")
+      @JsonIgnore
     private List<Autores> autores;
 
     @OneToMany(targetEntity = Libros.class , fetch =FetchType.LAZY , mappedBy = "escrituras")
+    @JsonIgnore
     private List <Libros> libros;
 }
